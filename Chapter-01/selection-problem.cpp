@@ -23,7 +23,7 @@ void selectionSort(vector<int>& numbers)
 
 int main(void)
 {
-    int n = 5000;
+    int n = 100000;
     vector<int> numbers(n);
     for (int i = 1; i <= n; i++) numbers[i - 1] = i;
     auto start = std::chrono::high_resolution_clock::now();
@@ -46,6 +46,6 @@ int main(void)
 |30000    |7261             |
 |40000    |12420            |
 |50000    |20321            |
-|1000000  |80867            |
+|100000   |80867            |
 -----------------------------
 */
