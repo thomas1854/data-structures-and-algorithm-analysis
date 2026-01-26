@@ -3,6 +3,13 @@
 #include <algorithm>
 using namespace std;
 
+/**
+ * @brief Finds maximum subarray sum using divide and conquer
+ * @param arr Input array
+ * @param left Starting index
+ * @param right Ending index
+ * @return Maximum subarray sum in range [left, right]
+ */
 int maxSubarraySum(const vector<int>& arr, int left, int right)
 {
     if (left == right)
@@ -36,7 +43,11 @@ int maxSubarraySum(const vector<int>& arr, int left, int right)
     return max({maxLeftSum, maxRightSum, leftBorderSum + rightBorderSum});
 }
 
-
+/**
+ * @brief Finds maximum subarray sum in entire array
+ * @param arr Input array
+ * @return Maximum subarray sum
+ */
 int maxSubarraySum(const vector<int>& arr)
 {
     return maxSubarraySum(arr, 0, arr.size() - 1);
