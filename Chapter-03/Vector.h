@@ -11,7 +11,7 @@ public:
 
     Vector(const Vector &rhs) : theSize{rhs.theSize}, theCapacity{rhs.theCapacity}
     {
-        objects = new Objects[theCapacity];
+        objects = new Object[theCapacity];
         for (int i = 0; i < theSize; i++)
             objects[i] = rhs.objects[i];
     }
@@ -30,16 +30,16 @@ public:
 
     Vector(Vector &&rhs) : theSize{rhs.theSize}, theCapacity{rhs.theCapacity}, objects{rhs.objects}
     {
-        rhs.objects = null;
+        rhs.objects = nullptr;
         rhs.theSize = 0;
         rhs.theCapacity = 0;
     }
 
     Vector &operator=(Vector &&rhs)
     {
-        swap(theSize, rhs.theSize);
-        swap(theCapacity, rhs.theCapacity);
-        swap(objects, rhs.objects);
+        std::swap(theSize, rhs.theSize);
+        std::swap(theCapacity, rhs.theCapacity);
+        std::swap(objects, rhs.objects);
         return *this;
     }
 
@@ -59,7 +59,7 @@ public:
         for (int i = 0; i < theSize; i++)
             newArray[i] = std::move(objects[i]);
         theCapacity = newCapacity;
-        swap(objects, newArray);
+        std::swap(objects, newArray);
         delete[] newArray;
     }
 
